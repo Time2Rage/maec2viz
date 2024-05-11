@@ -1,0 +1,68 @@
+{
+  "type": "package",
+  "id": "package--2d42dac8-c416-42c6-bc5c-7b6dcf576fc5",
+  "schema_version": "5.0",
+  "maec_objects": [
+    {
+      "type": "malware-instance",
+      "id": "malware-instance--19863c16-503e-493f-8841-16c68e39c26e",
+      "instance_object_refs": ["0"],
+      "dynamic_features": {
+        "behavior_refs": ["behavior--1"],
+        "action_refs": ["malware-action--1", "malware-action--2"],
+        "network_traffic_refs": ["4"],
+        "process_tree": [
+          {
+            "process_ref": "1",
+            "ordinal_position": 0
+          }
+        ]
+      }
+    },
+    {
+      "type": "behavior",
+      "id": "behavior--1",
+      "name": "persist after system reboot",
+      "description": "System reboot persistence via registry startup",
+      "action_refs": ["malware-action--1"]
+    },
+    {
+      "type": "malware-action",
+      "id": "malware-action--1",
+      "name": "enter into startup registry",
+      "description": "alters the registry to create persistence",
+      "input_object_refs": ["0"]
+    },
+    {
+      "type": "malware-action",
+      "id": "malware-action--2",
+      "name": "connect C2 server",
+      "description": "uses https to connect to a command and control server",
+      "output_object_refs": ["3"]
+    }
+  ],
+  "observable_objects": {
+    "0": {
+      "type": "file",
+      "hashes": { "MD5": "66e2ea40dc71d5ba701574ea215a81f1" }
+    },
+    "1": {
+      "type": "process",
+      "name" : "Open Copy.dll",
+      "pid": "1234"
+    },
+    "2": {
+      "type": "process",
+      "pid": "2345"
+    },
+    "3": {
+      "type": "domain-name",
+      "value": "example.com"
+    },
+    "4": {
+      "type": "network-traffic",
+      "dst_ref": "0",
+      "protocols": ["ipv4", "tcp", "http"]
+    }
+  }
+}

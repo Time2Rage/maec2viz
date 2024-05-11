@@ -17,7 +17,8 @@ require.config({
     }
 });
 
-require(["domReady!", "stix2viz/stix2viz/stix2viz"], function (document, stix2viz) {
+//require(["domReady!", "stix2viz/stix2viz/stix2viz"], function (document, stix2viz) {
+require(["domReady!", "stix2viz/maec2viz/maec2viz"], function (document, maec2viz) {
 
 
     // Init some stuff
@@ -136,14 +137,14 @@ require(["domReady!", "stix2viz/stix2viz/stix2viz"], function (document, stix2vi
             customConfig = {};
 
         // Hard-coded working icon directory setting for this application.
-        customConfig.iconDir = "stix2viz/stix2viz/icons";
+        customConfig.iconDir = "stix2viz/maec2viz/icons";
 
         toggleView();
 
         try
         {
             let [nodeDataSet, edgeDataSet, stixIdToObject]
-                = stix2viz.makeGraphData(content, customConfig);
+                = maec2viz.makeGraphData(content, customConfig);
 
             let wantsList = false;
             if (nodeDataSet.length > 200)
@@ -154,7 +155,7 @@ require(["domReady!", "stix2viz/stix2viz/stix2viz"], function (document, stix2vi
 
             if (wantsList)
             {
-                view = stix2viz.makeListView(
+                view = maec2viz.makeListView(
                     canvas, nodeDataSet, edgeDataSet, stixIdToObject,
                     customConfig
                 );
@@ -166,7 +167,7 @@ require(["domReady!", "stix2viz/stix2viz/stix2viz"], function (document, stix2vi
             }
             else
             {
-                view = stix2viz.makeGraphView(
+                view = maec2viz.makeGraphView(
                     canvas, nodeDataSet, edgeDataSet, stixIdToObject,
                     customConfig
                 );

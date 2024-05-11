@@ -1,0 +1,4 @@
+domain.png - "Globe icon 2" by Raymond1922A is licensed under CC BY-SA 3.0. 
+email_msg.png - https://iconoir.com/docs/introduction 
+behavior.png,collection.png,malware_action.png - Extracted from MAEC Core Specifications v5.0
+*.png - published by the STIX project

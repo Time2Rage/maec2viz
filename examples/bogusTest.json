@@ -1,0 +1,17 @@
+{
+    "type" : "test",
+    "id" : "mytest--12345",
+    "objects":
+    [
+    {"type": "fruit", "id": 1},
+    {"type": "vegetable", "id": 2},
+    {"type": "animal", "id": 3},
+    {"type": "mineral", "id": 4},
+    {"type": "plant", "id": 5},
+    {"type": "insect", "id": 6},
+    {"type": "bird", "id": 7},
+    {"type": "fish", "id": 8},
+    {"type": "mammal", "id": 9},
+    {"type": "reptile", "id": 10}
+    ]
+}

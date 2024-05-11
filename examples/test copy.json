@@ -13,6 +13,29 @@
       }
     },
     {
+      "type": "malware-instance",
+      "id": "malware-instance--19863c16-503e-493f-8841-16c68e39c26e",
+      "instance_object_refs": ["0"],
+      "dynamic_features": {
+        "behavior_refs": ["behavior--1", "behavior--2"],
+        "action_refs": ["malware-action--1", "malware-action--2"],
+        "network_traffic_refs": ["4"],
+        "process_tree": [
+          {
+            "process_ref": "1",
+            "ordinal_position": 0
+          }
+        ]
+      }
+    },
+    {
+      "type": "behavior",
+      "id": "behavior--1",
+      "name": "persist after system reboot",
+      "description": "System reboot persistence via registry startup",
+      "action_refs": ["malware-action--1"]
+    },
+    {
       "type": "report",
       "id": "report--c6c7ebc4-3f65-4375-b22d-313e894ab3d5",
       "created": "2017-07-18T22:00:30.405Z",

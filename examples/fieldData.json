@@ -1,0 +1,20 @@
+{
+  "type": "package",
+  "id": "package--6864e55f-5f5f-451a-843e-8c66913ae116",
+  "schema_version": "5.0",
+  "maec_objects": [
+    {
+      "type": "malware-family",
+      "id": "malware-family--8ff5814d-0c2e-5601-b8a5-d0032bb03847",
+      "name": {
+        "value": "Cryptolocker",
+        "confidence": 85
+      },
+      "field_data": {
+        "delivery_vectors": ["trojanized-link", "downloader"],
+        "first_seen": "2013-09-05T00:00:00Z",
+        "last_seen": "2017-01-05T00:00:00Z"
+      }
+    }
+  ]
+}

@@ -1,4 +1,9 @@
-# cti-stix-visualization
+# maec2viz - A visualization tool for MAEC5
+
+*This work is a fork and extension to the "cti-stix-visualization" tool developed as an [OASIS TC Open Repository](https://www.oasis-open.org/resources/open-repositories/). See the [Governance](#governance) section for more information about the base project.*
+
+## What is maec2viz
+This fork and extension was created in part-fulfillment of academic works in *BSc. Digital Forensic and Computer Security (Honours)* at *Technological University Dublin*
 
 *This is an [OASIS TC Open Repository](https://www.oasis-open.org/resources/open-repositories/). See the [Governance](#governance) section for more information.*
 
