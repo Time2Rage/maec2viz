@@ -1,9 +1,12 @@
 "use strict";
 
-/* @author Rene Dralle - B00138163
-Making use of the embeddedRelationships map and functionality,
-we create a map for the nested relationship in the MAEC format.
-*/
+/** 
+ * @author Rene Dralle - B00138163
+ * Making use of the embeddedRelationships map and functionality,
+ * we create a map for the nested relationship in the MAEC format.
+ * Based on the types parsed in the dissectMaec() function, embedded
+ * relationships are identified and applied.
+ */
 let embeddedRelationships = new Map([
     // No Null entry needed
     [null, null],
@@ -941,9 +944,10 @@ function nameForStixObject(stixObject, stixIdToName, nameCounts, config=null)
 //     return iconUrl;
 // }
 
-/* @author Rene Dralle - B00138163
-*   Altered iconURL factory to match MAEC types
-*/
+/**
+ *  @author Rene Dralle - B00138163
+ *   Altered iconURL factory to match MAEC types
+ */
 function stixTypeToIconURL(stixType, iconPath, iconFileName)
 {
     let iconUrl;
@@ -959,7 +963,7 @@ function stixTypeToIconURL(stixType, iconPath, iconFileName)
 
     return iconUrl;
 }
-
+// End of addition
 
 /**
  * Create an object representing a visjs network edge.  Any changes to edge
@@ -1150,9 +1154,10 @@ function normalizeContent(stixContent)
     }
 
     if (stixContent instanceof Map && stixContent.size > 0)
-/* @author Rene Dralle - B00138163
-This is the logic used in the original project to get into the STIX report
-below is the MAEC implementation
+/**
+ * @author Rene Dralle - B00138163
+ * This is the logic used in the original project to get into the STIX report
+ * below is the MAEC implementation
     // {
     //     if (stixContent.get("type") === "bundle")
     //         stixObjects = stixContent.get("objects") || [];
@@ -1189,7 +1194,7 @@ below is the MAEC implementation
             throw new STIXContentError();
         console.log("Finished Normalizing")
     }
-    // end of addition
+// End of addition
     else if (Array.isArray(stixContent))
         stixObjects = stixContent;
     else
