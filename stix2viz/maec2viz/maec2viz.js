@@ -6,6 +6,9 @@
  * we create a map for the nested relationship in the MAEC format.
  * Based on the types parsed in the dissectMaec() function, embedded
  * relationships are identified and applied.
+ * ["typelabel", [
+ * ["embedded_ref", "ref-label", direction(to/from)]
+ * ]]
  */
 let embeddedRelationships = new Map([
     // No Null entry needed
@@ -128,6 +131,7 @@ function dissectMaec(maecObjects){
         // Signatures    
         if (maec_object.has("triggered_signatures")){
             let signatures = maec_object.get("triggered_signatures")
+            console.log(signatures)
             for (let i of signatures){
                 let signature_entry = signatures[i]
                 // Added parent reference to keep consistency
@@ -1171,7 +1175,7 @@ function normalizeContent(stixContent)
         && parseInt(stixContent.get("schema_version")) >= 5){
             // MAEC Objects are required, therefore no extra check
             let maec_objects = stixContent.get("maec_objects") || [];
-            //populate dataset
+            // Dissect maec-objects and Populate dataset
             stixObjects = dissectMaec(maec_objects)
             // Check for Observables, normalize them and add to normalized Map-Array
             let observable_objects = stixContent.get("observable_objects") || [];
@@ -1835,7 +1839,6 @@ function edgesFromPropertyPaths(stixObject, stixIdToObject, relInfo)
 {
     let sourceId = stixObject.get("id");
     let edges = [];
-    console.log(relInfo)
     for (let [propPath, edgeLabel, forward] of relInfo)
     {
         
@@ -1886,8 +1889,6 @@ function edgesFromPropertyPaths(stixObject, stixIdToObject, relInfo)
 function edgesForEmbeddedRelationships(stixObject, stixIdToObject, config=null)
 {
     let stixType = stixObject.get("type");
-    console.log(stixObject)
-    console.log(stixType)
 
     let typeAgnosticRels = embeddedRelationships.get(null);
     let typeSpecificRels = embeddedRelationships.get(stixType);
@@ -1927,7 +1928,6 @@ function edgesForEmbeddedRelationships(stixObject, stixIdToObject, config=null)
 
     if (userTypeSpecificRels)
         allRels.push(...userTypeSpecificRels);
-    console.log(allRels)
 
     let edges = edgesFromPropertyPaths(stixObject, stixIdToObject, allRels);
 

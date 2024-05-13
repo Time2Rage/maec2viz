@@ -1,0 +1,23 @@
+{
+    "type":"package",
+    "id":"package--0b430ff3-7980-48d6-9cfb-62695fd5d089",
+    "schema_version":"5.0",
+    "maec_objects":[
+        {
+            "type"  :   "malware-instance",
+            "id"    :   "malware-instance--a35d1daf-d23a-454e-a0f8-7f5d70cf4507",
+            "name"  :   "IcedID",
+            "instance_object_refs"  :   ["0"]
+        }
+    ],
+    "observable_objects":{
+        "0":{
+            "type"  : "file",
+            "hashes" : {
+                "MD5"   :   "3a909051be64902111671cb5558cf246",
+                "SHA1"  :   "07ac47eee4e94a098449b3cc6418a10232f3062d",
+                "SHA256" :  "003d80351d41916caa174a252f41fbbcbb6bbc2f4b0fec5936264abbf030ecb0"
+            }
+        }
+    }
+}

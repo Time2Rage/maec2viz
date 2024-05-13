@@ -1,4 +1,63 @@
-domain.png - "Globe icon 2" by Raymond1922A is licensed under CC BY-SA 3.0. 
-email_msg.png - https://iconoir.com/docs/introduction 
-behavior.png,collection.png,malware_action.png - Extracted from MAEC Core Specifications v5.0
-*.png - published by the STIX project
+[1] "Globe icon 2" by Raymond1922A is licensed under CC BY-SA 3.0.
+	domain_name.png
+-----------------------------------
+[2] https://iconoir.com/docs/introduction under MIT License
+	analysis_metadata.png
+	api_call.png
+	binary_obfuscation.png
+	auto.png
+	directory.png
+	dynamic_features.png
+	email_addr.png
+	email_msg.png
+	field_data.png
+	file.png
+	ipv4_addr.png
+	ipv6_addr.png
+	location.png
+	mac.png
+	mail.png
+	network_traffic.png
+	user.png
+	url.png
+	software.png
+	static_features.png
+	wrk.png
+-----------------------------------
+[3] behavior.png,collection.png,malware_action.png - Extracted from MAEC Core Specifications v5.0
+	behavior.png
+	collection.png
+	malware_action.png
+	process.png
+-----------------------------------
+
+[4] *.png - published by the STIX project
+	artifact.png
+	attack_pattern.png
+	campaign.png
+	course_of_action.png
+	custom_object.png
+	grouping.png
+	identity_class.png
+	identity_generic.png
+	identity_group.png
+	identity_individual.png
+	identity_organization.png
+	identity_system.png
+	incident.png
+	indicator.png
+	infrastructure.png
+	intrusion_Set.png
+	malware_analysis.png
+	malware_family.png
+	malware_instance.png
+	note.png
+	opinion.png
+	relationship.png
+	report.png
+	sighting.png
+	threat_actor.png
+	tool.png
+	vulnerability.png
+	x509cert.png
+---------------------------------------------

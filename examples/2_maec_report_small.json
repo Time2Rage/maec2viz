@@ -1,0 +1,67 @@
+{
+    "type":"package",
+    "id":"package--0b430ff3-7980-48d6-9cfb-62695fd5d089",
+    "schema_version":"5.0",
+    "maec_objects":[
+        {
+            "type"  :   "malware-instance",
+            "id"    :   "malware-instance--a35d1daf-d23a-454e-a0f8-7f5d70cf4507",
+            "name"  :   "IcedID",
+            "instance_object_refs"  :   ["0"],
+            "triggered_signatures" : [
+                {
+                    "signature_type": "yara", 
+                    "description": "Detects IcedID..adjusted several times", 
+                    "name": "IceID_Bank_trojan",
+                    "severity" : "1"
+                }, 
+                {
+                    "signature_type": "yara", 
+                    "description": "Take screenshot", 
+                    "name": "screenshot"
+                    ,  "severity" : "1"
+                }, 
+                {
+                    "signature_type": "yara", 
+                    "description": "Run a keylogger", 
+                    "name": "keylogger"
+                    ,  "severity" : "1"
+                }, 
+                {
+                    "signature_type": "yara", 
+                    "description": "Affect system registries", 
+                    "name": "win_registry"
+                    ,  "severity" : "1"
+                }, 
+                {
+                    "signature_type": "yara", 
+                    "description": "Affect private profile", 
+                    "name": "win_private_profile"
+                    ,  "severity" : "1"
+                }, 
+                {
+                    "signature_type": "yara", 
+                    "description": "Affect private profile", 
+                    "name": "win_files_operation"
+                    ,  "severity" : "1"
+                }, 
+                {
+                    "signature_type": "yara", 
+                    "description": "Affect hook table", 
+                    "name": "win_hook"
+                    ,  "severity" : "1"
+                }
+            ]
+        }
+    ],
+    "observable_objects":{
+        "0":{
+            "type"  : "file",
+            "hashes" : {
+                "MD5"   :   "3a909051be64902111671cb5558cf246",
+                "SHA1"  :   "07ac47eee4e94a098449b3cc6418a10232f3062d",
+                "SHA256" :  "003d80351d41916caa174a252f41fbbcbb6bbc2f4b0fec5936264abbf030ecb0"
+            }
+        }
+    }
+}
