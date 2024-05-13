@@ -1,5 +1,5 @@
 {
-    "type":"package",
+    "type":"package XYZ",
     "id":"package--0b430ff3-7980-48d6-9cfb-62695fd5d089",
     "schema_version":"5.0",
     "maec_objects":[
@@ -174,6 +174,7 @@
             "type":"malware-action",
             "id":"malware-action--6ac5e1f7-f148-4683-b24a-142fd117e3d8",
             "name" : "generates_crypto_key",
+            "output_object_refs" : ["1"],
             "api_call":{
                 "function_name": "CryptGenKey", 
                 "return_value": 1, 
@@ -190,6 +191,7 @@
             "type":"malware-action",
             "id":"malware-action--dc719b8c-95f1-4ade-93dc-a8f0688e1df5",
             "name" : "exports_crypto_key",
+            "input_object_refs" : ["1"],
             "api_call": {
                 "function_name": "CryptExportKey", 
                 "parameters": {
@@ -210,6 +212,95 @@
                 "SHA1"  :   "07ac47eee4e94a098449b3cc6418a10232f3062d",
                 "SHA256" :  "003d80351d41916caa174a252f41fbbcbb6bbc2f4b0fec5936264abbf030ecb0"
             }
+        },
+        "1":{
+            "type" : "cryptographic_key",
+            "mimetype": "application/x-matlab-data",
+            "hashes" : {
+                "sha1": "30e5fd4cdcffe0e95b06631fe4d1ba9f7df44498", 
+                "sha256": "0b75371e4bc2ccf9fc5e3eaeba58640d0dc4f4b4d8e76f565068352b4c4b0c1c", 
+                "md5": "339ec1c8c8beffa862ec720ab4c86866",
+                "sha512": "e733802246ec09b1ff4cd33b89e4f7133feaa892fae4416d8cd0ee5e6aa56e79369e3dda021b3a3884bd6bbaf9330d5ebe3ce37e9d3f11cdfd655dd79d9ab238"
+            },
+            "name": "0b75371e4bc2ccf9_a18ca4003deb042bbee7a40f15e1970b_7ea2f8b5-aabb-423c-8988-64259ce18489", 
+            "filepath": "C:\\Users\\Administrator\\AppData\\Roaming\\Microsoft\\Crypto\\RSA\\S-1-5-21-3740676788-1466591295-3783685072-500\\a18ca4003deb042bbee7a40f15e1970b_7ea2f8b5-aabb-423c-8988-64259ce18489", 
+            "crc32": "1DACF006", 
+            "path": "/srv/cuckoo/cwd/storage/analyses/4894758/files/0b75371e4bc2ccf9_a18ca4003deb042bbee7a40f15e1970b_7ea2f8b5-aabb-423c-8988-64259ce18489", 
+            "size": "1054", 
+            "pids": [
+                2240
+            ]
         }
-    }
+    },
+    "relationships" : [
+        {
+            "type":"relationship",
+            "id":"relationship--4d4bd6db-0787-4607-812c-5335ef2a7423",
+            "target_ref":"malware-action--6ac5e1f7-f148-4683-b24a-142fd117e3d8",
+            "source_ref":"malware-action--dc719b8c-95f1-4ade-93dc-a8f0688e1df5",
+            "relationship_type":"dependent-on"
+        },
+        {
+            "type":"relationship",
+            "id":"relationship--35869193-d446-4d3d-9731-ee0e59f6f464",
+            "source_ref":"malware-instance--a35d1daf-d23a-454e-a0f8-7f5d70cf4507",
+            "target_ref":"malware-action--6ac5e1f7-f148-4683-b24a-142fd117e3d8",
+            "relationship_type":"invokes"
+        },        {
+            "type":"relationship",
+            "id":"relationship--6b27d252-1d3e-4087-849b-8cd140bb6d95",
+            "source_ref":"malware-action--bff2f1db-523f-4ed5-ab10-28805017c0c5",
+            "target_ref":"malware-instance--a35d1daf-d23a-454e-a0f8-7f5d70cf4507",
+            "relationship_type":"invoked-by"
+        },        {
+            "type":"relationship",
+            "id":"relationship--df07eba8-fb0d-489f-a6e3-46e179087bdf",
+            "source_ref":"malware-action--2413bb70-6640-4432-bc62-866f69ea63b5",
+            "target_ref":"malware-instance--a35d1daf-d23a-454e-a0f8-7f5d70cf4507",
+            "relationship_type":"invoked-by"
+        },        {
+            "type":"relationship",
+            "id":"relationship--1abc0b1f-5d54-4c59-a3f9-dce0320e6f73",
+            "source_ref":"malware-action--981829ac-3fbd-4994-9e27-8e80efe5b644",
+            "target_ref":"malware-instance--a35d1daf-d23a-454e-a0f8-7f5d70cf4507",
+            "relationship_type":"invoked-by"
+        },        {
+            "type":"relationship",
+            "id":"relationship--a78827dd-4ddf-470a-a38d-47d640abaf09",
+            "source_ref":"malware-action--2413bb70-6640-4432-bc62-866f69ea63b5",
+            "target_ref":"malware-instance--a35d1daf-d23a-454e-a0f8-7f5d70cf4507",
+            "relationship_type":"invoked-by"
+        },        {
+            "type":"relationship",
+            "id":"relationship--526e5fff-b299-4737-b006-308bd82e51b8",
+            "source_ref":"malware-action--981829ac-3fbd-4994-9e27-8e80efe5b644",
+            "target_ref":"malware-instance--a35d1daf-d23a-454e-a0f8-7f5d70cf4507",
+            "relationship_type":"invoked-by"
+        },        {
+            "type":"relationship",
+            "id":"relationship--b9e37e26-5068-4a84-8c27-5210b89921c1",
+            "source_ref":"malware-action--cc10ffe1-7d51-4192-8ba2-9a16c1d20aa2",
+            "target_ref":"malware-instance--a35d1daf-d23a-454e-a0f8-7f5d70cf4507",
+            "relationship_type":"invoked-by"
+        },        {
+            "type":"relationship",
+            "id":"relationship--6efceba3-5e73-461c-a080-ba3f7bb35fdb",
+            "source_ref":"malware-action--bb9049b3-efb0-4ced-a18d-bbad7fa7096b",
+            "target_ref":"malware-instance--a35d1daf-d23a-454e-a0f8-7f5d70cf4507",
+            "relationship_type":"invoked-by"
+        },        {
+            "type":"relationship",
+            "id":"relationship--9c0ac629-17a7-43d2-b75a-bc5f7316f9bb",
+            "source_ref":"malware-action--bb9049b3-efb0-4ced-a18d-bbad7fa7096b",
+            "target_ref":"malware-instance--a35d1daf-d23a-454e-a0f8-7f5d70cf4507",
+            "relationship_type":"invoked-by"
+        },
+        {
+            "type":"relationship",
+            "id":"relationship--eb82d895-6870-465d-b253-4490506031ae",
+            "source_ref":"malware-action--d40d3704-bc2c-429e-9578-9c1880fe8a2d",
+            "target_ref":"malware-instance--a35d1daf-d23a-454e-a0f8-7f5d70cf4507",
+            "relationship_type":"invoked-by"
+        }
+    ]
 }

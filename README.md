@@ -5,6 +5,8 @@
 ## What is maec2viz
 This fork and extension was created in part-fulfillment of academic works in *BSc. Digital Forensic and Computer Security (Honours)* at *Technological University Dublin*
 
+################################################################################
+
 *This is an [OASIS TC Open Repository](https://www.oasis-open.org/resources/open-repositories/). See the [Governance](#governance) section for more information.*
 
 The STIX visualization is meant to provide producers and consumers of STIX content with a rapid way to visualize the objects in a STIX JSON file, and the relationships between those objects. The visualization is implemented in HTML, CSS, and JavaScript (using the [D3.js](https://d3js.org/) library), and is suitable for standalone use — either on a hosted server or as a local file — or embedded into other applications. Regardless of how deployed, the JavaScript code in this repository does not transmit STIX data to any server; it is strictly processed within the browser in which the code is running, so it is suitable for data which the user does not wish to share.

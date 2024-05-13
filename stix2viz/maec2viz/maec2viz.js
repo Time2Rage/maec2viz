@@ -45,6 +45,9 @@ let embeddedRelationships = new Map([
     ["api_call", [
         ["parent_ref", "called", true]
     ]],
+    ["signature",[
+        ["parent_ref","triggered",false]
+    ]],
     ["static_features",[
         ["parent_ref", "of", false]
     ]],
@@ -95,12 +98,13 @@ function dissectMaec(maecObjects){
             // Binary Obfuscation
             if (static_features.has("obfuscation_methods")){
                 let obfuscation_methods = static_features.get("obfuscation_methods")
-                for (let i of obfuscation_methods) {
-                    let obfuscation_entry = obfuscation_methods[i]
-                    obfuscation_entry.set("id","binary-obfuscation--" + i)
+                let index = 0
+                for (let obfuscation_entry of obfuscation_methods) {
+                    obfuscation_entry.set("id","binary-obfuscation--" + index)
                     obfuscation_entry.set("parent_ref",static_features.get("id"))
                     obfuscation_entry.set("type","binary_obfuscation")
                     dissectedMaec_array.push(obfuscation_entry)
+                    index = index + 1
                 }
                 maec_object.delete("obfuscation_methods")
             }
@@ -118,40 +122,40 @@ function dissectMaec(maecObjects){
         // Capabilities
         if (maec_object.has("capabilities") || maec_object.has("common_capabilities")){ //second case for malware-family
             let capabilities = maec_object.get("capabilities")
-            for (let i in capabilities){
-                let capability_entry = capabilities[i]
-                // Added parent reference to keep consistency
-                capability_entry.set("id","capability--" + i)
+            let index = 0
+            for (let capability_entry in capabilities){
+                capability_entry.set("id","capability--" + index)
                 capability_entry.set("parent_ref",maec_object.get("id"))
                 capability_entry.set("type","capability")
                 dissectedMaec_array.push(capability_entry)
+                index = index + 1
             }
             maec_object.delete("capabilities")
         }   
-        // Signatures    
+        // // Signatures    
         if (maec_object.has("triggered_signatures")){
             let signatures = maec_object.get("triggered_signatures")
-            console.log(signatures)
-            for (let i of signatures){
-                let signature_entry = signatures[i]
+            let index = 0
+            for (let signature_entry of signatures){
                 // Added parent reference to keep consistency
-                signature_entry.set("id","signature--" + i)
+                signature_entry.set("id","signature--" + index)
                 signature_entry.set("parent_ref",maec_object.get("id"))
                 signature_entry.set("type","signature")
                 dissectedMaec_array.push(signature_entry)
+                index = index + 1
             }
             maec_object.delete("triggered_signatures")
         }
         // Analysis Metadata    
         if (maec_object.has("analysis_metadata")){
             let metadata = maec_object.get("analysis_metadata")
-            for (let i of metadata){
-                let metadata_entry = metadata[i]
-                // Added parent reference to keep consistency
-                metadata_entry.set("id","analysis-metadata--" + i)
+            let index = 0
+            for (let metadata_entry of metadata){
+                metadata_entry.set("id","analysis-metadata--" + index)
                 metadata_entry.set("parent_ref",maec_object.get("id"))
                 metadata_entry.set("type","analysis_metadata")
                 dissectedMaec_array.push(metadata_entry)
+                index = index + 1
             }
             maec_object.delete("analysis_metadata")
         }
@@ -1195,7 +1199,7 @@ function normalizeContent(stixContent)
                 console.log("No Relationships section")
         }
         else
-            throw new STIXContentError();
+            throw new STIXContentError("Wrong MAEC format. Check type : package and schema version > 5");
         console.log("Finished Normalizing")
     }
 // End of addition
